@@ -177,7 +177,7 @@
                             <svg style="width:48px;height:48px" viewBox="0 0 24 24">
                                 <path fill="currentColor" d="M16 0H8C6.9 0 6 .9 6 2V18C6 19.1 6.9 20 8 20H20C21.1 20 22 19.1 22 18V6L16 0M20 18H8V2H15V7H20V18M4 4V22H20V24H4C2.9 24 2 23.1 2 22V4H4M10 10V12H18V10H10M10 14V16H15V14H10Z" />
                             </svg><br>
-                            Paper
+                            Paper (coming soon)
                         </a>
                     <li class="nav-item text-center">
                         
@@ -186,7 +186,7 @@
                                 <path fill="currentColor" d="M32 0a32.021 32.021 0 0 0-10.1 62.4c1.6.3 2.2-.7 2.2-1.5v-6c-8.9 1.9-10.8-3.8-10.8-3.8-1.5-3.7-3.6-4.7-3.6-4.7-2.9-2 .2-1.9.2-1.9 3.2.2 4.9 3.3 4.9 3.3 2.9 4.9 7.5 3.5 9.3 2.7a6.93 6.93 0 0 1 2-4.3c-7.1-.8-14.6-3.6-14.6-15.8a12.27 12.27 0 0 1 3.3-8.6 11.965 11.965 0 0 1 .3-8.5s2.7-.9 8.8 3.3a30.873 30.873 0 0 1 8-1.1 30.292 30.292 0 0 1 8 1.1c6.1-4.1 8.8-3.3 8.8-3.3a11.965 11.965 0 0 1 .3 8.5 12.1 12.1 0 0 1 3.3 8.6c0 12.3-7.5 15-14.6 15.8a7.746 7.746 0 0 1 2.2 5.9v8.8c0 .9.6 1.8 2.2 1.5A32.021 32.021 0 0 0 32 0z" />
                             </svg>
                             <br>
-                            Code
+                            Code (coming soon)
                         </a>
                         <li class="nav-item text-center">
                             <a href="TODO" class="nav-link">
@@ -194,7 +194,7 @@
                                     <path fill="currentColor" d="M448 73.143v45.714C448 159.143 347.667 192 224 192S0 159.143 0 118.857V73.143C0 32.857 100.333 0 224 0s224 32.857 224 73.143zM448 176v102.857C448 319.143 347.667 352 224 352S0 319.143 0 278.857V176c48.125 33.143 136.208 48.572 224 48.572S399.874 209.143 448 176zm0 160v102.857C448 479.143 347.667 512 224 512S0 479.143 0 438.857V336c48.125 33.143 136.208 48.572 224 48.572S399.874 369.143 448 336z" />
                                 </svg>
                                 <br>
-                                Data
+                                Data (coming soon)
                             </a>
 
                 </ul>
@@ -220,9 +220,21 @@
                        object segmentation for neural radiance field (NeRF) without any supervision, annotations,
                         or other cues such as 3D bounding boxes and prior knowledge of object class. 
                 </p>
-                <img class="img-responsive" src="img/method.jpg" alt="Pipeline (figure 2)">
-                <p class="text-justify"></p>
+                <img class="img-responsive" src="img/method.jpg">
+                <p class="text-justify">
                 RFP is derived from emerging neural radiance field-based techniques, which jointly encodes semantics with appearance and geometry. The core of our method is a novel propagation strategy for individual objects' radiance fields with a bidirectional photometric loss, enabling an unsupervised partitioning of a scene into salient or meaningful regions corresponding to different object instances.
+            </p>
+            <h4>Illustration of radiance field propagation</h4>
+            <img class="img-responsive" src="img/inpainting-page-001.jpg" >
+            <p class="text-justify">
+                Here object 0 and 1 respectively denote the background and the foreground object: (a) corrected rendered image, (b) image rendered with object 1's radiance field, (c) image rendered with object 0's radiance field and (d) image with object 0 rendered with object 1's RF and object 1 with object 0's RF.
+            </p>
+            <h4>Comparison with segmentation baeslines</h4>
+            <img class="img-responsive" src="img/comparison.jpg" >
+            <p class="text-justify">
+                Qualitative comparison on 3D segmentation on scenes with a single foreground object from LLFF and CO3D. IEM and ReDO
+                 are unsupervised single-image-based methods. SemanticNeRF is a supervised approach for scene labeling, so not applicable to LLFF due to the lack of ground truth labels.
+            Images have been cropped for typography.
             </p>
             </div>
         </div>
@@ -230,18 +242,10 @@
             <div class="col-md-8 mx-auto">
                 <h4 class="mb-3">BibTeX</h4>
                 <textarea id="bibtex" class="form-control" readonly>
-TODO</textarea>
+                    Coming soon</textarea>
             </div>
         </div>
-        <div class="row mb-3 pt-1">
-            <div class="col-md-8 mx-auto">
-                <h4>TODO</h4>
-                <p>
-                    Object 0 and 1 respectively denote the background and the foreground object: (a) corrected rendered image, (b) image rendered with object 1's radiance field, (c) image rendered with object 0's radiance field and (d) image with object 0 rendered with object 1's RF and object 1 with object 0's RF.
-                </p>
-        <img class="img-responsive" src="img/inpainting-page-001.jpg" alt="Pipeline (figure 2)">
-            </div>
-        </div>
+
 
         
         <div class="row mb-3">
