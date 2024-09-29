@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html><head lang="en"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>ChatCam</title>
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- mirror: F0%9F%AA%9E&lt -->
+    <link rel="icon" type="image/png" href="img_deceptive/deception_icon.png">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/codemirror.min.css">
+    <link rel="stylesheet" href="css/app.css">
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/codemirror.min.js"></script>
+    <script src="js/clipboard.min.js"></script>
+    <script src="js/video_comparison.js"></script>
+    <script src="js/app.js"></script>
+</head>
+
+<body>
+    <div class="container" id="header" style="text-align: center; margin: 0 auto; padding: 20px;">
+        <!-- Title Section -->
+        <div class="row" id="title-row" style="max-width: 100%; margin: 0 auto;">
+            <h2 class="col-md-12 text-center" id="title" style="font-weight: bold; font-size: 2.6em;">
+                ChatCam: Empowering Camera Control <br> through Conversational AI
+            </h2>
+            <div class="col-md-12 text-center" style="margin-top: 10px; font-size: 1.5em; color: #555;">
+                NeurIPS 2024
+            </div>
+        </div>
+        
+        <!-- Author Section -->
+        <div class="row author-row" style="margin-top: 30px;">
+            <div class="col-md-12 text-center">
+                <a href="https://xinhangliu.com" style="font-size: 1.2em; color: #007bff; text-decoration: none; margin: 0 10px;">Xinhang Liu</a> 
+                <a href="https://yuwingtai.github.io/" style="font-size: 1.2em; color: #007bff; text-decoration: none; margin: 0 10px;">Yu-Wing Tai</a>
+                <a href="https://cse.hkust.edu.hk/~cktang/bio.html" style="font-size: 1.2em; color: #007bff; text-decoration: none; margin: 0 10px;">Chi-Keung Tang</a>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        document.getElementById('author-row').style.maxWidth = document.getElementById("title-row").clientWidth + 'px';
+    </script>
+    <div class="container" id="main">
+        <div class="row">
+                <div class="col-sm-6 col-sm-offset-3 text-center">
+                    <ul class="nav nav-pills nav-justified">
+                        <li>
+                            <a href="https://arxiv.org/abs/2409.17331" target="_blank">
+                                <img src="./img_deceptive/file.png" height="60px"><br>
+                                <strong>Paper</strong>
+                            </a>
+                          </li>                        
+                        <li>
+                            <a href="" target="_blank">
+                                <img src="./img_deceptive/video-player.png" height="60px"><br>
+                                <strong>Video (coming soon)</strong>
+                            </a>
+                        </li>                    
+                        <li>
+                            <a href="" target="_blank">
+                                <img src="./img_deceptive/code.png" height="60px"><br>
+                                <strong>Code (coming soon)</strong>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Abstract
+                </h3>
+                <p class="text-justify">
+                    Cinematographers adeptly capture the essence of the world, crafting compelling visual narratives through intricate camera movements. Witnessing the strides made by large language models in perceiving and interacting with the 3D world, this study explores their capability to control cameras with human language guidance. We introduce ChatCam, a system that navigates camera movements through conversations with users, mimicking a professional cinematographer's workflow. To achieve this, we propose CineGPT, a GPT-based autoregressive model for text-conditioned camera trajectory generation. We also develop an Anchor Determinator to ensure precise camera trajectory placement. ChatCam understands user requests and employs our proposed tools to generate trajectories, which can be used to render high-quality video footage on radiance field representations. Our experiments, including comparisons to state-of-the-art approaches and user studies, demonstrate our approach's ability to interpret and execute complex instructions for camera operation, showing promising applications in real-world production settings. 
+                </p>
+            </div>
+            <img src="img_chatcam/teaser.png" class="img-responsive" alt="overview" style="max-width: 60%; height: auto; display: block; margin: auto;">
+            
+            
+
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Method
+                </h3>
+            </div>
+                <img src="img_chatcam/whole_pipeline.png" class="img-responsive" alt="overview" style="max-width: 60%; height: auto; display: block; margin: auto;">
+                <div class="col-md-8 col-md-offset-2">
+                <p class="text-justify">
+                    Given a camera operation instruction, ChatCam reasons the user's request and devises a plan 
+                    to generate a trajectory using our proposed CineGPT and Anchor Determinator. The agent then 
+                    utilizes the outputs from these tools to compose the complete trajectory and render a video.
+            </div>
+            <img src="img_chatcam/cineGPT.png" class="img-responsive" alt="overview" style="max-width: 60%; height: auto; display: block; margin: auto;">
+            <div class="col-md-8 col-md-offset-2">
+                <p class="text-justify">
+                    <strong>(a) CineGPT. </strong>We quantize camera trajectories to sequences of tokens and adopt a GPT-based architecture 
+                    to generate the tokens autoregressively. Learning trajectory and language jointly, CineGPT is capable of text-conditioned 
+                    trajectory generation. 
+                    <strong>(b) Anchor Determination. </strong>Given a prompt describing the image rendered from an anchor point, the 
+                    anchor selector chooses the best matching input image. An anchor refinement procedure further fine-tunes the anchor position.
+            </div>
+
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Results
+                </h3>
+            </div>
+            <img src="img_chatcam/results.png" class="img-responsive" alt="overview" style="max-width: 60%; height: auto; display: block; margin: auto;">
+            
+            
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <h3>
+                        Video (coming soon)
+                    </h3>
+                    <div class="text-center">
+                        <iframe width="560" height="315" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+
+            
+            
+
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <h3>
+                        Citation
+                    </h3>
+                    <div class="form-group col-md-12 col-md-offset-0">
+                        <textarea id="bibtex" class="form-control" readonly style="height: 160px;">
+@article{liu2024chatcam,
+    title={ChatCam: Empowering Camera Control through Conversational AI},
+    author={Liu, Xinhang and Tai, Yu-Wing and Tang, Chi-Keung},
+    journal={arXiv preprint arXiv:2409.17331},
+    year={2024}
+    }
+    </textarea>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <h3>
+                        Acknowledgements
+                    </h3>
+                    <p class="text-justify">
+                    The website template was borrowed from <a href="http://mgharbi.com/">Michaël Gharbi</a>.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+        
+
+        
+
+        
+
+
+
+        
+
+
+            
+     
+
+
+</body></html>
